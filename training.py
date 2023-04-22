@@ -1,6 +1,7 @@
 import argparse
 import pandas as pd
 import torch.nn as nn
+from torch_geometric.loader import DataLoader
 
 from models.gin import ResGINNet
 from utils import *

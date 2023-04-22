@@ -1,4 +1,7 @@
 import argparse
+
+from torch_geometric.loader import DataLoader
+
 from models.gin import ResGINNet
 from utils import *
 from training import predicting
