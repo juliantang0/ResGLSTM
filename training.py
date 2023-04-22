@@ -124,9 +124,6 @@ def main(args):
                 print(ret[1], 'No improvement since epoch ', best_epoch, '; best_mse,best_ci:', best_mse, best_ci,
                       model_st, dataset)
 
-            # send to database
-            save2db(best_mse, best_ci, ret[1], ret[-2], dataset, model_st)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run DeepGLSTM")

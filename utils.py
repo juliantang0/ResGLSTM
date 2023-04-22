@@ -166,13 +166,3 @@ def ci(y, f):
         j = i - 1
     ci = S / z
     return ci
-
-
-def save2db(best_mse: float, best_ci: float, mse: float, ci: float, dataset: str, model: str):
-    connection = pymysql.connect(host=, port=, user=, password=, database=dataset)
-    cursor = connection.cursor()
-    cursor.execute(
-        "insert into {} (best_mse, best_ci, mse, ci) value ({}, {}, {}, {})".format(model, best_mse, best_ci, mse, ci))
-    connection.commit()
-    cursor.close()
-    connection.close()
