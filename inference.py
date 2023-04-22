@@ -1,12 +1,5 @@
-import numpy as np
 import argparse
-import pandas as pd
-import sys, os
-from random import shuffle
-import torch
-import torch.nn as nn
 from models.gin import ResGINNet
-from torch_geometric.loader import DataLoader
 from utils import *
 from training import predicting
 

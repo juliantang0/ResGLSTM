@@ -3,10 +3,8 @@ import numpy as np
 from math import sqrt
 from scipy import stats
 from torch_geometric.data import InMemoryDataset
-from torch_geometric.loader import DataLoader
 from torch_geometric import data as DATA
 import torch
-import pymysql
 
 
 class TestbedDataset(InMemoryDataset):
