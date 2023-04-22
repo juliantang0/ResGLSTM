@@ -1,4 +1,4 @@
-# ResGLSTM: Residual Graph Convolutional Network and LSTM based approach for drug-target binding affinity prediction
+# ResGLSTM: Residual Graph Isomorphism Network and LSTM based approach for drug-target binding affinity prediction
 ## Preparation <a name="prepration"></a>
 ### Environment Setup <a name="env-setup"></a>
 The dependency pakages can be installed using the command.
