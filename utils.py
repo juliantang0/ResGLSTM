@@ -169,7 +169,7 @@ def ci(y, f):
 
 
 def save2db(best_mse: float, best_ci: float, mse: float, ci: float, dataset: str, model: str):
-    connection = pymysql.connect(host="39.107.95.156", port=3310, user="root", password="root", database=dataset)
+    connection = pymysql.connect(host=, port=, user=, password=, database=dataset)
     cursor = connection.cursor()
     cursor.execute(
         "insert into {} (best_mse, best_ci, mse, ci) value ({}, {}, {}, {})".format(model, best_mse, best_ci, mse, ci))
