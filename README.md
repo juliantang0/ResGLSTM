@@ -1,4 +1,8 @@
 # ResGLSTM: Residual Graph Isomorphism Network and LSTM based approach for drug-target binding affinity prediction
+
+## Model Architecture <a name="Model-Architecture"></a>
+![alt text](images/architecture.png "ResGLSTM")
+
 ## Preparation <a name="prepration"></a>
 ### Environment Setup <a name="env-setup"></a>
 The dependency pakages can be installed using the command.
@@ -12,17 +16,17 @@ In our experiment we use Davis, Kiba datasets respectively.
 ### Create Dataset <a name="create-dataset"></a>
 Firstly, run the script below to create Pytorch_Geometric file. The file will be created in processed folder in data folder.
 ```shell
-python3 create_data.py 
+python data_creation.py 
 ```
 ### Model Training  <a name="model-tra"></a>
 Run the following script to train the model.
 ```shell
-python3 training.py 
+python training.py 
 ```
 Default values of argument parser are set for davis dataset.
 ### Inference on Pretrained Model  <a name="Inf-pre"></a>
 Run the following script to test the model.
 ```shell
-python3 inference.py 
+python inference.py 
 ```
 Default values of argument parser are set for davis dataset.

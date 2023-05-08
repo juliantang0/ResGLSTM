@@ -2,7 +2,7 @@ import argparse
 
 from torch_geometric.loader import DataLoader
 
-from models.gin import ResGINNet
+from models.resgin import ResGINNet
 from utils import *
 from training import predicting
 
@@ -12,7 +12,6 @@ def main(args):
     modelings = [ResGINNet]
     cuda_name = "cuda:0"
     print('cuda_name:', cuda_name)
-    rate_ = []
 
     TEST_BATCH_SIZE = args.batch_size
 
@@ -28,7 +27,7 @@ def main(args):
             model_st = modeling.__name__
             print('\npredicting for ', dataset, ' using ', model_st)
             device = torch.device(cuda_name if torch.cuda.is_available() else "cpu")
-            model = modeling(k1=1, k2=2, k3=3, embed_dim=128, num_layer=1, device=device).to(device)
+            model = modeling(embed_dim=128, num_layer=1, device=device).to(device)
             model_file_name = args.load_model
             if os.path.isfile(model_file_name):
                 param_dict = torch.load(model_file_name)
@@ -51,16 +50,16 @@ def main(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Test DeepGLSTM with pretrained models")
+    parser = argparse.ArgumentParser(description="Test ResGLSTM with pretrained models")
 
     parser.add_argument(
         "--dataset", type=str,
-        default='davis', help='Dataset Name (davis,kiba,DTC,Metz,ToxCast,Stitch)'
+        default='davis', help='Dataset Name (davis, kiba, metz)'
     )
 
     parser.add_argument(
         "--batch_size", type=int,
-        default=128, help='Test Batch size. For Davis is 128'
+        default=128, help='Test Batch size. For davis and metz is 128 while 512 for kiba.'
     )
 
     parser.add_argument(
