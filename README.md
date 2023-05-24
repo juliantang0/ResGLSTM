@@ -10,7 +10,7 @@ The dependency pakages can be installed using the command.
 pip install -r requirements.txt
 ```
 ### Dataset description <a name="dataset"></a>
-In our experiment we use Davis, Kiba datasets respectively.
+In our experiment we use Davis, KIBA and Metz datasets respectively.
 
 ## Quick Start <a name="model-tra"></a>
 ### Create Dataset <a name="create-dataset"></a>

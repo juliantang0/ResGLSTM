@@ -18,7 +18,7 @@ def main(args):
     result = []
 
     processed_data_file_test = 'data/processed/' + dataset + '_test.pt'
-    if (not os.path.isfile(processed_data_file_test)):
+    if not os.path.isfile(processed_data_file_test):
         print('please run create_data.py to prepare data in pytorch format!')
     else:
         test_data = TestbedDataset(root='data', dataset=dataset + '_test')
@@ -34,6 +34,7 @@ def main(args):
                 model.load_state_dict(param_dict)
                 hidden, cell = model.init_hidden(batch_size=TEST_BATCH_SIZE)
                 G, P = predicting(model, device, test_loader, hidden, cell)
+                plot(G, P)
                 ret = [rmse(G, P), mse(G, P), pearson(G, P), spearman(G, P), ci(G, P),
                        get_rm2(G.reshape(G.shape[0], -1), P.reshape(P.shape[0], -1))]
                 ret = [dataset, model_st] + [round(e, 3) for e in ret]

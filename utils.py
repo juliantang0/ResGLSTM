@@ -5,6 +5,7 @@ from scipy import stats
 from torch_geometric.data import InMemoryDataset
 from torch_geometric import data as DATA
 import torch
+import matplotlib.pyplot as plt
 
 
 class TestbedDataset(InMemoryDataset):
@@ -164,3 +165,19 @@ def ci(y, f):
         j = i - 1
     ci = S / z
     return ci
+
+
+def plot(measured, predicted):
+    plt.figure(figsize=(10, 6))
+    # 绘制散点图
+    plt.scatter(predicted, measured, color='#2077B3', s=10, alpha=0.5)
+    # 计算回归曲线
+    m, b = np.polyfit(predicted, measured, 1)
+    regression_line = [m * x + b for x in predicted]
+    # 绘制回归曲线
+    plt.plot(predicted, regression_line, color='red')
+    # 设置坐标轴标签
+    plt.xlabel('Predicted Values')
+    plt.ylabel('Measured Values')
+    # 保存图形
+    plt.savefig('prediction.png')
